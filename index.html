@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Command Manager</title>
+    <title>Command API Interface</title>
     <script>
         async function sendCommand() {
             const commandInput = document.getElementById("commandInput").value;
@@ -17,6 +17,7 @@
 
             const data = await response.json();
             document.getElementById("responseMessage").innerText = data.message;
+            document.getElementById("commandInput").value = ""; // Clear input field
         }
 
         async function getCommands() {
@@ -44,11 +45,12 @@
 
             const data = await response.json();
             document.getElementById("responseMessage").innerText = data.message;
+            document.getElementById("deleteCommandInput").value = ""; // Clear input field
         }
     </script>
 </head>
 <body>
-    <h1>Command Manager</h1>
+    <h1>Command API Interface</h1>
 
     <h2>Send Command</h2>
     <input type="text" id="commandInput" placeholder="Enter command" />
